@@ -1,7 +1,7 @@
 /*
-×÷Õß£ºÖñ×Ó
-Ä¿µÄ£ºÎÒÃÇ²¿ÃÅ¼ÆËã¹¤×ÊÓĞµãÂé·³£¬ËùÒÔĞ´ÁËÒ»¸ö³ÌĞò¿ÉÒÔ¼ÆËã£¬²¢ÇÒÊä³ö½á¹û£¬·½±ãÁË²¿ÃÅ¹¤×ÊµÄ¼ÆËã¡£
-ÔËÓÃµÄÎÄ¼şÁ÷µÄÊäÈëºÍÊä³ö
+ä½œè€…ï¼šç«¹å­
+ç›®çš„ï¼šæˆ‘ä»¬éƒ¨é—¨è®¡ç®—å·¥èµ„æœ‰ç‚¹éº»çƒ¦ï¼Œæ‰€ä»¥å†™äº†ä¸€ä¸ªç¨‹åºå¯ä»¥è®¡ç®—ï¼Œå¹¶ä¸”è¾“å‡ºç»“æœï¼Œæ–¹ä¾¿äº†éƒ¨é—¨å·¥èµ„çš„è®¡ç®—ã€‚
+è¿ç”¨çš„æ–‡ä»¶æµçš„è¾“å…¥å’Œè¾“å‡º
 */
 #include<iostream>
 #include<string>
@@ -21,13 +21,13 @@ public:
 	double money=0;
 	person() = default;
 	~person() {}
-//ËãÊ±¼ä
+//ç®—æ—¶é—´
 	void gettime(double a) { time = a; }
-	//Ëã¼¨Ğ§ºÍ·£¿î
+	//ç®—ç»©æ•ˆå’Œç½šæ¬¾
 	void getmoney(double a) { money = money + a; }
-	//ÊäÈëÃû×ÖºÍÑ§ºÅ
+	//è¾“å…¥åå­—å’Œå­¦å·
 	void getname(string a, string b) { swap(a,name); swap(b, xuehao); n++; }
-	//Ëã×Ü½ğ¶î
+	//ç®—æ€»é‡‘é¢
 	void count()
 	{
 		if (time < 16) { money = money + time * 16; }
@@ -41,59 +41,65 @@ int main()
 {
 	person a[25];
 	ofstream out;
-	ifstream in("¹¤×Ê.txt");//¶ÁÎÄ¼şÊı¾İ
+	ifstream in("å·¥èµ„.txt");//è¯»æ–‡ä»¶æ•°æ®
 	double d;
 	if (!in)
 	{
-		cout << "¶ÁÎÄ¼şÊ±´ò¿ªÊ§°Ü¡£";
+		cout << "è¯»æ–‡ä»¶æ—¶æ‰“å¼€å¤±è´¥ã€‚";
 		return 0;
 	}
 	else
 	{
-		//ÊäÈëÊı¾İ
+		string l,w,e;//æŠŠå‰ä¸‰è¡Œå¼„æ‰
+		getline(in, l);
+		getline(in, w);
+		getline(in, e);
+
+		//è¾“å…¥æ•°æ®
 		for (int i = 0; !in.eof(); i++)
 		{
-			string l;//±£´æÎÄ¼şµÄÒ»ĞĞ
-			getline(in, l);//¶ÁÈ¡Ò»ĞĞÎÄ¼ş
-			string b, c;//±£´æÃû×ÖºÍÑ§ºÅ
-			istringstream iss(l);//stringÁ÷ÊäÈë
-			iss >> b >> c;//Ò»ĞĞµÄÇ°Á½¸öÊÇÈËÃûºÍÑ§ºÅ
-			a[i].getname(b, c);//µÃµ½ÈËÃûºÍÑ§ºÅ
-			vector<string> m;//±£´æºóÃæµÄ¹¤×÷Ê±¼ä£¬ÒÔ±ãºóÃæ×ª»»Îªdouble
-			string q;//µÃµ½ºóÃæµÄÊı×Ö
-			while (iss >> q) { m.push_back(q); }//½«stringÁ÷ÀïµÄ×Ö·ûÑ¹ÈëÈİÆ÷ÀïÃæ
-			double p[20] = { 0 };//±£´æµÃµ½µÄÊı¾İ
-			for (int j = 0; j < m.size(); j++) {//½«string×ª»¯Îªdouble
+			string l;//ä¿å­˜æ–‡ä»¶çš„ä¸€è¡Œ
+			getline(in, l);//è¯»å–ä¸€è¡Œæ–‡ä»¶
+			string b, c;//ä¿å­˜åå­—å’Œå­¦å·
+			istringstream iss(l);//stringæµè¾“å…¥
+			iss >> b >> c;//ä¸€è¡Œçš„å‰ä¸¤ä¸ªæ˜¯äººåå’Œå­¦å·
+			a[i].getname(b, c);//å¾—åˆ°äººåå’Œå­¦å·
+			vector<string> m;//ä¿å­˜åé¢çš„å·¥ä½œæ—¶é—´ï¼Œä»¥ä¾¿åé¢è½¬æ¢ä¸ºdouble
+			string q;//å¾—åˆ°åé¢çš„æ•°å­—
+			while (iss >> q) { m.push_back(q); }//å°†stringæµé‡Œçš„å­—ç¬¦å‹å…¥å®¹å™¨é‡Œé¢
+			double p[20] = { 0 };//ä¿å­˜å¾—åˆ°çš„æ•°æ®
+			for (int j = 0; j < m.size(); j++) {//å°†stringè½¬åŒ–ä¸ºdouble
 				p[j] = atof(m[j].c_str());
 			}
-			for (int k = 0; k < m.size(); k++) {//¼ÆËãÊ±¼ä
+			for (int k = 0; k < m.size(); k++) {//è®¡ç®—æ—¶é—´
 				if (p[k] < 10) { a[i].time += p[k]; }
 				else {
 					a[i].getmoney(p[k]);
 				}
 			}
 
-			//¼ÆËãÊı¾İ
+			//è®¡ç®—æ•°æ®
 			 a[i].count();
 		}
-		cout << "ÊäÈë³É¹¦" << endl;
-		//Êä³öµ½ÎÄ±¾
-		out.open("½á¹û.txt");
+		cout << "è¾“å…¥æˆåŠŸ" << endl;
+		//è¾“å‡ºåˆ°æ–‡æœ¬
+		out.open("ç»“æœ.txt");
 		if (!out)
 		{
-			cout << "Ğ´ÈëÊ±ÎÄ¼ş´ò¿ªÊ§°Ü¡£" << endl;
+			cout << "å†™å…¥æ—¶æ–‡ä»¶æ‰“å¼€å¤±è´¥ã€‚" << endl;
 			return 0;
 		}
 		else {
-			out << left << setw(50) << "ĞÕÃû" << setw(50) << "Ñ§ºÅ" << setw(50) << "×ÜÊ±¼ä" << setw(50) << "×Ü¹¤×Ê" << endl;
-			for (int i = 0; i < n; i++)
+			out << left << setw(50) << "å§“å" << setw(50) << "å­¦å·" << setw(50) << "æ€»æ—¶é—´" << setw(50) << "æ€»å·¥èµ„" << endl;
+			for (int i = 0; i < n-2; i++)
 			{
 				out << left << setw(50) << a[i].name << setw(50) << a[i].xuehao << setw(50) << a[i].time << setw(50) << a[i].money << endl;
 			}
-			cout << "Ğ´Èë³É¹¦" << endl;
+			cout << "å†™å…¥æˆåŠŸ" << endl;
 		}
 		in.close();
 		out.close();
+		system("pause");
 		return 0;
 	}
 }
